@@ -2,8 +2,7 @@ name: Run tests on any Push event
 
 on:
   push:
-    branches:
-      - '**'  # все ветки, но НЕ теги
+    branches: ['**']
 
 jobs:
   run_tests:
@@ -23,7 +22,9 @@ jobs:
           pip install coverage
 
       - name: Run tests with coverage
-        run: coverage run -m pytest src/tests.py  # или просто `coverage run src/tests.py`, если это скрипт
+        run: |
+          export PYTHONPATH=src
+          coverage run -m unittest src.tests
 
       - name: Show coverage report
         run: coverage report
