@@ -65,5 +65,5 @@ class FlaskAppTests(unittest.TestCase):
         self.assertEqual(r.data, b'5.0')
 ##
 ###
-# if __name__ == '__main__':
+if __name__ == '__main__':
     unittest.main()
